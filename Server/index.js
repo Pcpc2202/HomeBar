@@ -5,8 +5,8 @@ const cookieParser = require("cookie-parser");
 const { errorHandleMiddleware } = require("./src/middleware");
 
 const corsOptions = {
-  origin: "http://localhost:3001",
-  methods: ["GET", "POST", "PUT"],
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };

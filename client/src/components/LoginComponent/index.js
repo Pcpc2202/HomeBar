@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Nav } from "react-bootstrap";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const LogIn = () => {
@@ -11,6 +12,9 @@ const LogIn = () => {
   });
 
   useEffect(() => {}, [data]);
+
+  let navigate = useNavigate();
+  let path = "/options";
 
   const handleClickLogin = () => {
     if (loginState === "login") setLoginState("register");
@@ -23,6 +27,9 @@ const LogIn = () => {
       await Axios.post("http://localhost:4000/users/login", {
         email: data.email,
         password: data.password,
+      }).then((response) => {
+        console.log(response);
+        navigate(path);
       });
     } else if (loginState === "register") {
       e.preventDefault();
@@ -30,6 +37,7 @@ const LogIn = () => {
         email: data.email,
         password: data.password,
       });
+      if (!data) alert("invalid");
     }
   };
   const handleInput = (e) => {

@@ -34,13 +34,13 @@ const insertRecipeController = async (req, res, next) => {
   }
 };
 
-const deleteRecipeController = async (res, req, next) => {
+const deleteRecipeController = async (req, res, next) => {
   const targetId = req.params.id;
   const destroy = await recipeModels.deleteRecipe(targetId);
   try {
     if (destroy.affectedRows === 1) res.status(200).send("🎉 User deleted!");
     else throw new RecordNotFoundError("User not found");
-  } catch {
+  } catch (error) {
     next(error);
   }
 };
