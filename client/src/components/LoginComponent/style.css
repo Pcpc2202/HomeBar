@@ -1,0 +1,13 @@
+.color-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 50%;
+  width: 50%;
+  mix-blend-mode: normal;
+  margin: 25%;
+}
+
+.form {
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
