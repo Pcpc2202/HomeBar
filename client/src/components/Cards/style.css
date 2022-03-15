@@ -1,9 +1,12 @@
+.card {
+  width: 25% !important;
+}
+
 .card:hover {
   box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
 }
 .card-body {
   padding: 3rem 0 !important;
-  background-color: brown;
 }
 .card-text {
   font-size: 0.9rem !important;
@@ -30,9 +33,6 @@
   display: flex;
   justify-content: center;
 }
-.favourite-container {
-  min-height: 100vh;
-}
 
 .modal-title {
   margin: 0 auto;
@@ -41,13 +41,4 @@
 .card {
   background-color: rgb(252, 222, 220);
   border: 2.5px solid rgba(0, 0, 0, 0.125);
-}
-
-.justify-content-center,
-.modal-body {
-  background-color: rgb(215, 252, 253);
-}
-
-.modal-header {
-  background-color: rgb(251, 137, 128);
 }

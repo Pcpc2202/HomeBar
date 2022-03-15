@@ -14,7 +14,7 @@ const getAllRecipesController = async (_req, res, next) => {
 const getRecipesFromUserIdController = async (req, res, next) => {
   try {
     const recipes = await recipeModels.getRecipesFromUserId(req.currentUser.id);
-    if (recipes.length <= 1) throw new RecordNotFoundError("Recipes not found");
+    if (recipes.length < 1) throw new RecordNotFoundError("Recipes not found");
     res.status(200).send(recipes);
   } catch (error) {
     next(error);
@@ -36,9 +36,9 @@ const insertRecipeController = async (req, res, next) => {
 
 const deleteRecipeController = async (req, res, next) => {
   const targetId = req.params.id;
-  const destroy = await recipeModels.deleteRecipe(targetId);
   try {
-    if (destroy.affectedRows === 1) res.status(200).send("🎉 User deleted!");
+    const [destroy] = await recipeModels.deleteRecipe(targetId);
+    if (destroy.affectedRows === 1) res.status(200).send("🎉 Recipe deleted!");
     else throw new RecordNotFoundError("User not found");
   } catch (error) {
     next(error);

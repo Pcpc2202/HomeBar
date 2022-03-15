@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Navbar, Nav, Container } from "react-bootstrap";
 import { useNavigate, NavLink } from "react-router-dom";
 import Axios from "axios";
+import "./style.css";
 
 const Navigation = () => {
   let navigate = useNavigate();

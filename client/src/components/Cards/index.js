@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./style.css";
 import image from "../../assets/image.png";
 import Delete from "../DeleteRecipe";
+import EditRecipe from "../EditRecipe";
 
 const RecipeCard = () => {
   const [yourRecipes, setYourRecipes] = useState();
@@ -17,6 +18,7 @@ const RecipeCard = () => {
       return setYourRecipes(response.data);
     });
   console.log({ yourRecipes });
+
   return (
     <div>
       {user && yourRecipes ? (
@@ -33,6 +35,7 @@ const RecipeCard = () => {
                       <Card.Title>{el.title}</Card.Title>
                       <Card.Text>{el.description}</Card.Text>
                     </Card.Body>
+                    <EditRecipe {...el} />
                     <Delete id={el.id} />
                   </Card>
                 </>
